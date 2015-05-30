@@ -7,7 +7,9 @@ RUN \
     apt-get -y clean && \
     apt-get -y autoremove && \
     useradd --system --no-create-home --user-group --shell /bin/false polipo && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* \
+      /usr/share/doc /usr/share/doc-base \
+      /usr/share/man /usr/share/locale /usr/share/zoneinfo
 
 USER polipo
 EXPOSE 8123
