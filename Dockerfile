@@ -1,6 +1,6 @@
 # Force autobuild 1436387937
 
-FROM debian:wheezy
+FROM konstruktoid/debian:wheezy
 
 RUN \
     apt-get update && \
