@@ -1,5 +1,3 @@
-# Force autobuild 1439929939
-
 FROM konstruktoid/debian:wheezy
 
 RUN \
