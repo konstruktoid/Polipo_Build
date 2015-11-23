@@ -16,5 +16,5 @@ RUN \
 
 USER $USER
 EXPOSE 8123
-ENTRYPOINT ["polipo"]
+ENTRYPOINT ["/usr/bin/polipo"]
 CMD []
