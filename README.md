@@ -8,3 +8,5 @@ Website: http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/
 ```sh
 ~$ docker run -d -p 8123:8123 --cap-drop=all konstruktoid/polipo proxyAddress=::0 allowedClients=192.168.1.0/24
 ```
+
+`./apparmor/` contains apparmor profile and toml file, `--security-opt="apparmor:docker-polipo"`
