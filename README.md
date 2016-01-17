@@ -6,7 +6,7 @@ While Polipo was designed to be used by one person or a small group of people, t
 Website: http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/  
 
 ```sh
-~$ docker run -d -p 8123:8123 --cap-drop=all konstruktoid/polipo proxyAddress=::0 allowedClients=192.168.1.0/24
+docker run -d -p 8123:8123 --cap-drop=all --read-only --tmpfs /tmp:rw,nosuid,nodev,noexec,size=100m --tmpfs /var/log:rw,nosuid,nodev,noexec --tmpfs /var/cache:rw,nosuid,noexec,nodev --tmpfs /run:rw,noexec,nodev,nosuid konstruktoid/polipo proxyAddress=::0 allowedClients=192.168.1.0/24
 ```
 
 `./apparmor/` contains apparmor profile and toml file, `--security-opt="apparmor:docker-polipo"`
