@@ -1,4 +1,4 @@
-FROM konstruktoid/debian:wheezy
+FROM konstruktoid/debian:stretch
 
 ENV USER polipo
 

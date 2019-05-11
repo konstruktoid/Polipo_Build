@@ -3,15 +3,19 @@
 
 Website: http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/ +
 
-"Polipo is obsolete
+== Polipo is no longer maintained
 
-When it was first written, Polipo was probably the best HTTP proxy available. Since then, the web protocols have changed, and Polipo hasn't kept up — it has no support for HTTP/2.0 or the WebSocket protocol.
+"When it was first written, Polipo was probably the best HTTP proxy available.
+Since then, the web has changed, and HTTP proxies are no longer useful: most
+traffic is encrypted, and a web proxy merely acts as a dumb intermediary for
+encrypted traffic.
 
 Polipo will no longer be maintained."
 
 [source]
 ----
-docker run -d -p 8123:8123 --cap-drop=all --read-only --tmpfs /tmp:rw,nosuid,nodev,noexec,size=100m --tmpfs /var/log:rw,nosuid,nodev,noexec --tmpfs /var/cache:rw,nosuid,noexec,nodev --tmpfs /run:rw,noexec,nodev,nosuid konstruktoid/polipo proxyAddress=::0 allowedClients=192.168.1.0/24
+docker build --no-cache -t konstruktoid/polipo -f Dockerfile .
+docker run -d -p 8123:8123 --cap-drop=all --read-only --tmpfs /tmp:rw,nosuid,nodev,noexec,size=100m --tmpfs /var/log:rw,nosuid,nodev,noexec --tmpfs /var/cache:rw,nosuid,noexec,nodev --tmpfs /run:rw,noexec,nodev,nosuid konstruktoid/polipo proxyAddress=::0 allowedClients=192.168.1.0/24 daemonise=false logFile=
 ----
 
 `./apparmor/` contains apparmor profile and toml file, `--security-opt="apparmor:docker-polipo"`
